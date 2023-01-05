@@ -11,7 +11,7 @@ export default function Header(props: Props) {
             <Container>
                 <Flex h='120px' justify='space-between' align='center'>
 
-                    <Image src='./logo-black.svg' />
+                    <Image src='./logo-black.svg' alt='Logotipo do Linkhub' />
                     { props.children }
 
                 </Flex>

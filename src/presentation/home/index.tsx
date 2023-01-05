@@ -1,41 +1,67 @@
-import { Button, Container, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Container, Flex, Heading, Text } from "@chakra-ui/react";
+
+import Copyright from "../../components/Copyright";
 import Header from "../../components/Header";
-import Link from "../../components/Link";
+import Window from "../../components/Window";
+import Button from "../../components/Button";
 
 export default function Page() {
+
+    const buttons = <>
+        <Button text='Criar conta' maxW='300px' width={['100%', '100%', 'fit-content']} variant='outline' />
+        <Button text='Login' maxW='300px' width={['100%', '100%', 'fit-content']} />
+    </>
+
     return (
-        <Flex h='100vh' w='100vw' flexDir='column' overflowX='hidden'>
+        <Window>
+
             <Header bottomLine>
-                <Flex gap='10px'>
-                    <Button variant='outline'>Criar conta</Button>
-                    <Button>Login</Button>
+                <Flex gap='10px' display={[ 'none', 'none', 'flex' ]}>
+                    { buttons }
                 </Flex>
             </Header>
 
             <Flex as='main' h='100%' marginY='50px'>
                 <Container h='100%'>
-                    <Flex flexDir='row' gap='50px'h='100%'>
+
+                    <Flex h='100%' gap='50px' align='center' flexDir={['column', 'column', 'row']} textAlign={['center', 'center', 'left']}>
                         
                         <Flex as='section' flexDir='column' h='100%' w='100%'>
-                            <Flex flex='1'/>
+
+                            <Flex flex='1' display={[ 'none', 'none', 'flex' ]}/>
                             
                             <Flex flexDir='column' gap='20px'>
+
                                 <Heading size='lg'>Agilize a forma como seus clientes te encontram usando o nosso hub de links.</Heading>
                                 <Text size='lg'>Acesse sua conta e aproveite!</Text>
-                                <Button h='35px' w='35px' p='0px'>
-                                    <Image src='./arrow-white.svg' h='9px'/>
-                                </Button>
+
+                                <Button h='35px' w='35px' p='0px' display={[ 'none', 'none', 'flex' ]} arrow />
+
+                                <Flex gap='10px' flexDir={['column', 'row']} align='center' display={[ 'flex', 'flex', 'none' ]} >
+                                    { buttons }
+                                </Flex>
+                            
                             </Flex>
                             
-                            <Flex flex='1' align='flex-end'>
-                                <Text size='md'>Desenvolvido por <Link href='https://github.com/andremedeiro'>André Martins</Link></Text>
-                            </Flex>
+                            <Copyright flex='1' align='flex-end' display={[ 'none', 'none', 'flex' ]} />
+                        
                         </Flex>
                         
-                        <Flex bg='url(./rocket.svg)' bgSize='contain' bgRepeat='no-repeat' bgPos='right' h='100%' w='60%'/>
+                        <Flex
+                            bg='url(./rocket.svg)'
+                            bgSize='contain'
+                            bgRepeat='no-repeat'
+                            
+                            bgPos={[ 'center', 'center', 'right' ]}
+                            height={[ '700px', '1000px', '100%' ]}
+                            width={[ '100%', '100%', '60%' ]}
+                        />
+                    
+                        <Copyright display={[ 'flex', 'flex', 'none' ]}/>
+
                     </Flex>
                 </Container>
             </Flex>
-        </Flex>
+        </Window>
     )
 }
