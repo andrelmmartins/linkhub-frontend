@@ -1,6 +1,5 @@
-import { Button, Container, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Button, Container, Flex, Heading, Image, Text, Link } from "@chakra-ui/react";
 import Header from "../../components/Header";
-import Link from "../../components/Link";
 
 export default function Page() {
     return (
@@ -14,7 +13,7 @@ export default function Page() {
 
             <Flex as='main' h='100%' marginY='50px'>
                 <Container h='100%'>
-                    <Flex flexDir='row' gap='50px'h='100%'>
+                    <Flex flexDir='row' gap='50px' h='100%'>
                         
                         <Flex as='section' flexDir='column' h='100%' w='100%'>
                             <Flex flex='1'/>
@@ -23,12 +22,12 @@ export default function Page() {
                                 <Heading size='lg'>Agilize a forma como seus clientes te encontram usando o nosso hub de links.</Heading>
                                 <Text size='lg'>Acesse sua conta e aproveite!</Text>
                                 <Button h='35px' w='35px' p='0px'>
-                                    <Image src='./arrow-white.svg' h='9px'/>
+                                    <Image src='./arrow-white.svg' h='9px' alt='Seta dentro de um botão que se refere ao fato de acessar a conta.'/>
                                 </Button>
                             </Flex>
                             
                             <Flex flex='1' align='flex-end'>
-                                <Text size='md'>Desenvolvido por <Link href='https://github.com/andremedeiro'>André Martins</Link></Text>
+                                <Text size='md'>Desenvolvido por <Link href='https://github.com/andremedeiro/'>André Martins</Link></Text>
                             </Flex>
                         </Flex>
                         
