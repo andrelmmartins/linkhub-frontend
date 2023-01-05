@@ -83,6 +83,7 @@ export const theme = extendTheme({
                     fontSize: '12px',
                     padding: '0px 15px',
                     gap: '15px',
+                    width: 'fit-content'
                 },
                 lg: {
                     justify: 'space-between',
@@ -133,7 +134,7 @@ export const theme = extendTheme({
                     fontSize: '13px'
                 },
                 lg: {
-                    fontSize: '18px'
+                    fontSize: ['18px', '18px', '18px', '22px', '25px']
                 }
             }
         },
@@ -141,7 +142,7 @@ export const theme = extendTheme({
         Heading: {
             sizes: {
                 lg: {
-                    fontSize: ['24px', '24px', '35px']
+                    fontSize: ['24px', '24px', '35px', '40px', '45px']
                 }
             }
         },

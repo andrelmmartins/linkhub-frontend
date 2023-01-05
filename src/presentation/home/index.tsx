@@ -15,7 +15,7 @@ export default function Page() {
     return (
         <Window>
 
-            <Header bottomLine>
+            <Header bottomLine justify={[ 'center', 'center', 'space-between' ]}>
                 <Flex gap='10px' display={[ 'none', 'none', 'flex' ]}>
                     { buttons }
                 </Flex>
@@ -26,16 +26,16 @@ export default function Page() {
 
                     <Flex h='100%' gap='50px' align='center' flexDir={['column', 'column', 'row']} textAlign={['center', 'center', 'left']}>
                         
-                        <Flex as='section' flexDir='column' h='100%' w='100%'>
+                        <Flex as='section' flexDir='column' h={['fit-content', 'fit-content', '100%']} w='100%'>
 
                             <Flex flex='1' display={[ 'none', 'none', 'flex' ]}/>
                             
-                            <Flex flexDir='column' gap='20px'>
+                            <Flex flexDir='column' gap='30px'>
 
                                 <Heading size='lg'>Agilize a forma como seus clientes te encontram usando o nosso hub de links.</Heading>
                                 <Text size='lg'>Acesse sua conta e aproveite!</Text>
 
-                                <Button h='35px' w='35px' p='0px' display={[ 'none', 'none', 'flex' ]} arrow />
+                                <Button text='Acessar conta' display={[ 'none', 'none', 'flex' ]} arrow />
 
                                 <Flex gap='10px' flexDir={['column', 'row']} align='center' display={[ 'flex', 'flex', 'none' ]} >
                                     { buttons }
@@ -53,7 +53,7 @@ export default function Page() {
                             bgRepeat='no-repeat'
                             
                             bgPos={[ 'center', 'center', 'right' ]}
-                            height={[ '700px', '1000px', '100%' ]}
+                            height={[ '400px', '500px', '100%' ]}
                             width={[ '100%', '100%', '60%' ]}
                         />
                     
