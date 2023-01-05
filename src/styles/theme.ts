@@ -137,7 +137,7 @@ export const theme = extendTheme({
         Heading: {
             sizes: {
                 lg: {
-                    fontSize: '35px'
+                    fontSize: ['24px', '24px', '35px']
                 }
             }
         },
@@ -154,4 +154,3 @@ export const theme = extendTheme({
         }
     }
 })
-  
