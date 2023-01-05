@@ -110,6 +110,10 @@ export const theme = extendTheme({
                     color: 'black',
                     borderColor: 'black',
                     borderWidth: '1px',
+                    _hover: {
+                        bg: 'white',
+                        color: 'black',
+                    },
                     _active: {
                         bg: 'white',
                         color: 'black',
