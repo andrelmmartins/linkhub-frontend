@@ -1,9 +1,8 @@
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Page from '../presentation/home'
+import Page from '../../presentation/auth/login'
 
-const Home: NextPage = () => {
-  
+const Login: NextPage = () => {
     return (
         <>
             <Head>
@@ -18,7 +17,7 @@ const Home: NextPage = () => {
     )
 }
 
-export default Home;
+export default Login;
 
 export const getStaticProps : GetStaticProps = async (context) => {
     return {
