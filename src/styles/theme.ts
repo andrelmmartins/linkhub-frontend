@@ -4,9 +4,14 @@ export const theme = extendTheme({
     colors: {
         white: "#F2F0EB",
         black: "#0D0D0D",
+        black_transparent: "#0D0D0D11",
         gray1: "#BFBFBD",
         gray2: "#8C8B88",
         gray3: "#595856",
+    },
+
+    shadows: {
+        outline: '0 0 0 3px #BFBFBD'
     },
 
     fonts: {
@@ -18,7 +23,7 @@ export const theme = extendTheme({
         global: {
             body: {
                 bg: 'white',
-                color: 'black'
+                color: 'black',
             }
         }
     },
@@ -32,6 +37,7 @@ export const theme = extendTheme({
     },
     
     components: {
+
         Container: {
             sizes: {
                 sm: {
@@ -86,9 +92,11 @@ export const theme = extendTheme({
                     width: 'fit-content'
                 },
                 lg: {
-                    justify: 'space-between',
-                    align: 'center',
+                    display: 'flex',
+                    fontSize: '14px',
+                    justifyContent: 'space-between',
                     padding: '0px 15px',
+                    height: '50px'
                 }
             },
 
@@ -120,6 +128,24 @@ export const theme = extendTheme({
                         color: 'black',
                     }
                 }),
+
+                ghost: (props: StyleFunctionProps) => ({
+                    bg: 'transparent',
+                    padding: '0px',
+                    minH: 'fit-content',
+                    minW: 'fit-content',
+                    margin: 'auto',
+                    _hover: {
+                        transform: 'translate(0px, 0px)',
+                        boxShadow: '0px 0px transparent',
+                        bg: 'black_transparent'
+                    },
+                    _active: {
+                        transform: 'translate(0px, 0px)',
+                        boxShadow: '0px 0px transparent',
+                        bg: 'black_transparent',
+                    },
+                })
             },
 
             defaultProps: {
@@ -155,7 +181,52 @@ export const theme = extendTheme({
                 _hover: {
                     textDecoration: 'none'
                 }
+            },
+            
+            sizes: {
+                sm: {
+                    w: 'fit-content',
+                    fontSize: '12px',
+                    borderBottom: 'none',
+                },
+                
+                md: {
+                    w: 'fit-content',
+                    fontSize: '12px',
+                }
             }
-        }
+        },
+
+        Input: {
+
+            variants: {
+                flushed: (props: StyleFunctionProps) => ({
+                    field: {
+                        fontWeight: 'bold',
+                        fontSize: '14px',
+                        borderColor: 'black',
+                        paddingLeft: '15px',
+                        height: '45px',
+                        
+                        _hover: {
+                            borderColor: 'black',
+                        },
+                        _focus: {
+                            borderColor: 'black',
+                            boxShadow: '0 1px #0D0D0D'
+                        },
+                        _placeholder: {
+                            color: 'black',
+                            fontSize: '13px',
+                            fontWeight: 'normal'
+                        }
+                    },
+                }),
+            },
+
+            defaultProps: {
+                variant: 'flushed'
+            }
+        },
     }
 })

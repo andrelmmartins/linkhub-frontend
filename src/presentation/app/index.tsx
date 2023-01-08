@@ -7,11 +7,9 @@ export default function Page() {
 
     return (
         <Window>
-
             <Header bottomLine justify={[ 'center', 'center', 'space-between' ]}>
 
             </Header>
-
         </Window>
     )
 }

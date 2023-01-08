@@ -1,6 +1,6 @@
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Page from '../../presentation/auth/login'
+import Page from '../../presentation/app'
 
 const App: NextPage = () => {
     return (

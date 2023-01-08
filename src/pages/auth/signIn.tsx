@@ -1,8 +1,8 @@
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Page from '../../presentation/auth/login'
+import Page from '../../presentation/auth/signIn'
 
-const Login: NextPage = () => {
+const SignIn: NextPage = () => {
     return (
         <>
             <Head>
@@ -17,7 +17,7 @@ const Login: NextPage = () => {
     )
 }
 
-export default Login;
+export default SignIn;
 
 export const getStaticProps : GetStaticProps = async (context) => {
     return {
