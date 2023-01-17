@@ -1,9 +1,10 @@
-import { NextPage, GetStaticProps } from 'next'
+import { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
-import Page from '../presentation/home'
 
-const Home: NextPage = () => {
-  
+import { protections } from '../../utils/protections'
+import Page from '../../presentation/app'
+
+const App: NextPage = () => {
     return (
         <>
             <Head>
@@ -18,10 +19,12 @@ const Home: NextPage = () => {
     )
 }
 
-export default Home;
+export default App;
 
-export const getStaticProps : GetStaticProps = async (context) => {
-    return {
-        props: {}
+export const getServerSideProps : GetServerSideProps = protections.keepInAuth(
+    async (context) => {
+        return {
+            props: {}
+        }
     }
-}
+)

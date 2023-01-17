@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container, Flex, Heading, Text } from "@chakra-ui/react";
 
 import Copyright from "../../components/Copyright";
@@ -8,8 +9,8 @@ import Button from "../../components/Button";
 export default function Page() {
 
     const buttons = <>
-        <Button text='Criar conta' maxW='300px' width={['100%', '100%', 'fit-content']} variant='outline' />
-        <Button text='Login' maxW='300px' width={['100%', '100%', 'fit-content']} />
+        <Link href='/auth/create'><Button maxW='300px' width={['100%', '100%', 'fit-content']} variant='outline'>Criar conta</Button></Link>
+        <Link href='/auth/signIn'><Button maxW='300px' width={['100%', '100%', 'fit-content']}>Entrar</Button></Link>
     </>
 
     return (
@@ -28,14 +29,14 @@ export default function Page() {
                         
                         <Flex as='section' flexDir='column' h={['fit-content', 'fit-content', '100%']} w='100%'>
 
-                            <Flex flex='1' display={[ 'none', 'none', 'flex' ]}/>
+                            <Flex flex='1' display={{ 'xl': 'none', '2xl': 'flex' }}/>
                             
-                            <Flex flexDir='column' gap='30px'>
+                            <Flex flexDir='column' gap='20px'>
 
                                 <Heading size='lg'>Agilize a forma como seus clientes te encontram usando o nosso hub de links.</Heading>
                                 <Text size='lg'>Acesse sua conta e aproveite!</Text>
 
-                                <Button text='Acessar conta' display={[ 'none', 'none', 'flex' ]} arrow />
+                                <Button display={[ 'none', 'none', 'flex' ]} arrow>Acessar conta</Button>
 
                                 <Flex gap='10px' flexDir={['column', 'row']} align='center' display={[ 'flex', 'flex', 'none' ]} >
                                     { buttons }
@@ -48,7 +49,7 @@ export default function Page() {
                         </Flex>
                         
                         <Flex
-                            bg='url(./rocket.svg)'
+                            bg='url(/rocket.svg)'
                             bgSize='contain'
                             bgRepeat='no-repeat'
                             
