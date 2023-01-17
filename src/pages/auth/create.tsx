@@ -2,13 +2,13 @@ import { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
 
 import { protections } from '../../utils/protections'
-import Page from '../../presentation/app'
+import Page from '../../presentation/auth/create'
 
-const App: NextPage = () => {
+const Create: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Linkhub</title>
+                <title>Criar sua conta | Linkhub</title>
                 <meta name="description" content="Agilize a forma como seus clientes te encontram usando o nosso hub de links." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
@@ -19,9 +19,9 @@ const App: NextPage = () => {
     )
 }
 
-export default App;
+export default Create;
 
-export const getServerSideProps : GetServerSideProps = protections.keepInAuth(
+export const getServerSideProps : GetServerSideProps = protections.keepInApp(
     async (context) => {
         return {
             props: {}

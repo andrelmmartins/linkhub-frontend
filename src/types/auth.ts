@@ -10,7 +10,7 @@ export type UserResponse = {
     role: string
 }
 
-// login
+// signIn
 
 export type SignInData = {
     email: string
@@ -22,12 +22,45 @@ export type SignInResponse = {
     token: string
 } 
 
-// login
+// create
 
-export type CreateFormData = {
+export type CreateData = {
     name: string
     email: string
     username: string
     password: string
-    passwordConfirmation: String
+}
+
+export type CreateAPIData = {
+    name: string
+    email: string
+    username: string
+    password: string
+    role: string
 } 
+
+export type CreateFormData = CreateData & {
+    passwordConfirmation: string
+}
+
+// forgot
+
+export type ForgotData = {
+    email: string
+}
+
+export type ValidateForgotProcessData = {
+    id: string
+    token: string
+}
+
+// change
+
+export type ChangePasswordFormData = {
+    password: string,
+    passwordConfirmation: string
+}
+
+export type ChangePasswordData = ValidateForgotProcessData & {
+    password: string
+}

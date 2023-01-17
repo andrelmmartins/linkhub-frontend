@@ -1,6 +1,5 @@
 import { createContext, useContext } from "react";
-import { HStack, Image, RenderProps, Text, useToast } from '@chakra-ui/react'
-import Button from "../components/Button";
+import { RenderProps, useToast } from '@chakra-ui/react'
 import Toast from "../components/Toast";
 
 interface ContextProps {
@@ -10,7 +9,7 @@ interface ContextProps {
     }
 }
 
-const AppContenxt = createContext({} as ContextProps)
+export const AppContext = createContext({} as ContextProps)
 
 export function AppProvider(props : { children: React.ReactNode }) {
 
@@ -35,15 +34,13 @@ export function AppProvider(props : { children: React.ReactNode }) {
     }
 
     return (
-        <AppContenxt.Provider value={{
+        <AppContext.Provider value={{
             toast: {
                 sucess: (title: string) => createToast(title, 'success'),
                 error: (title: string) => createToast(title, 'error'),
             }
         }}>
             { props.children }
-        </AppContenxt.Provider>
+        </AppContext.Provider>
     )
 }
-
-export const useAppContext = () => useContext(AppContenxt)

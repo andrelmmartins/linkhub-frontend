@@ -8,7 +8,7 @@ export const validate = {
 
     email: (email: string) => {
         return Boolean(
-            email.match(/^(([a-z0-9](\.?[a-z0-9]){3,}))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+            email.match(/^(([a-z0-9](\.?[a-z0-9]){2,}))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
         )
     },
 
@@ -20,7 +20,7 @@ export const validate = {
 
     username: (username: string) => {
         return Boolean(
-            username.match(/^[a-z0-9](\.?[a-z0-9]){3,}$/)
+            username.match(/^[a-z0-9](\.?[a-z0-9]){2,}$/)
         )
     },
 

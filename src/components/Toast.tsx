@@ -22,7 +22,7 @@ export default function Toast(props : Props) {
         >
             <Text color='white' fontSize='13px'>{props.title}</Text>
             <Button variant='ghost' height='20px' w='20px' onClick={props.onClose}>
-                <Image src='/close.svg' h='10px' w='10px' />
+                <Image src='/close.svg' h='10px' w='10px'/>
             </Button>
         </HStack>
     )

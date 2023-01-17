@@ -1,8 +1,33 @@
-import { NextPage, GetStaticProps } from 'next'
+import { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+
+import { useAppContext } from "../../hooks/useAppContext"
+import { protections } from '../../utils/protections'
+import { translate } from '../../utils/error'
+
 import Page from '../../presentation/auth/signIn'
 
-const SignIn: NextPage = () => {
+interface Props {
+    alert?: string
+}
+
+const SignIn: NextPage = ({ alert } : Props) => {
+    
+    const router = useRouter()
+    const { toast } = useAppContext()
+
+    useEffect(() => {
+        if(alert) {
+            router.replace('', undefined, { shallow: true }).then(() => {
+                toast.error(
+                    translate(alert)
+                )
+            })
+        }
+    }, [ this ])
+    
     return (
         <>
             <Head>
@@ -12,15 +37,25 @@ const SignIn: NextPage = () => {
             </Head>
 
             <Page/>
-        
         </>
     )
 }
 
 export default SignIn;
 
-export const getStaticProps : GetStaticProps = async (context) => {
-    return {
-        props: {}
+export const getServerSideProps : GetServerSideProps = protections.keepInApp(
+    async (context) => {
+    
+        const { alert } = context.query
+    
+        if (alert) return {
+            props: {
+                alert
+            }
+        }
+    
+        return {
+            props: {}
+        }
     }
-}
+)

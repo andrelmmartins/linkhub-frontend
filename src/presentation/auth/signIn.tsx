@@ -1,4 +1,5 @@
-import { Link, Stack } from "@chakra-ui/react";
+import Link from 'next/link'
+import { Link as ChakraLink, Stack } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 
@@ -11,13 +12,13 @@ import Button from "../../components/Button";
 
 import { SignInData } from "../../types/auth";
 import { validate } from "../../utils/validate";
-import { useAuthContext } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function Page() {
 
     const { signIn } = useAuthContext()
 
-    const { register, handleSubmit, formState: { errors } } = useForm<SignInData>()
+    const { register, handleSubmit, formState: { errors, isSubmitting }} = useForm<SignInData>()
     const onSubmit : SubmitHandler<SignInData> = async ({ email, password }) => {
         await signIn({ email, password })
     }
@@ -34,33 +35,35 @@ export default function Page() {
                     <Logo />
                     
                     <Stack as='form' spacing='20px' w='100%' onSubmit={handleSubmit(onSubmit)}>
-                        <Input
-                            label='Email'
-                            type='text'
-                            errors={errors}
-                            register={register('email', {
-                                required: 'Informe seu email!',
-                                validate: (value: string) => validate.email(value) || 'E-mail inválido!'
-                            })}
-                        />
+                        <Stack spacing='5px' w='100%'>
+                            <Input
+                                label='Email'
+                                type='text'
+                                errors={errors}
+                                register={register('email', {
+                                    required: 'Informe seu email!',
+                                    validate: (value: string) => validate.email(value) || 'E-mail inválido!'
+                                })}
+                            />
+                            
+                            <Input
+                                label='Senha'
+                                type='password'
+                                errors={errors}
+                                register={register('password', {
+                                    required: 'Informe sua senha!'
+                                })}
+                            />
+                        </Stack>
                         
-                        <Input
-                            label='Senha'
-                            type='password'
-                            errors={errors}
-                            register={register('password', {
-                                required: 'Informe sua senha!'
-                            })}
-                        />
-
-                        <Button type='submit' size='lg' arrow>Entrar</Button>
+                        <Button type='submit' size='lg' isLoading={isSubmitting} arrow>Entrar</Button>
                     
-                        <Link size='sm' href='../forget'>Esqueci minha senha</Link>
+                        <Link href='/auth/forgot' passHref legacyBehavior><ChakraLink size='sm'>Esqueci minha senha</ChakraLink></Link>
                     </Stack>
 
-                    <Stack spacing='20px' w='100%'>
-                        <Link size='md' href='../create'>Criar minha conta</Link>
-                        <Link size='md' href='../../create'>&lt;Voltar</Link>
+                    <Stack spacing='10px' w='100%'>
+                        <Link href='/auth/create' passHref legacyBehavior><ChakraLink size='md'>Criar minha conta</ChakraLink></Link>
+                        <Link href='/' passHref legacyBehavior><ChakraLink size='md'>&lt;Voltar</ChakraLink></Link>
                     </Stack>
                 </Stack>
             </Right>

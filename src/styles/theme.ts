@@ -1,5 +1,21 @@
 import { extendTheme, StyleFunctionProps } from "@chakra-ui/react"
 
+const scrollStyle = {
+    '&::-webkit-scrollbar': {
+        width: '10px',
+    },
+        
+    '&::-webkit-scrollbar-track': {
+        bg: 'white',
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+        bg: 'black',
+        border: '4px solid',
+        borderColor: 'white',
+    } 
+}
+
 export const theme = extendTheme({
     colors: {
         white: "#F2F0EB",
@@ -24,6 +40,13 @@ export const theme = extendTheme({
             body: {
                 bg: 'white',
                 color: 'black',
+                ...scrollStyle
+            },
+            a: {
+                width: 'fit-content'
+            },
+            div: {
+                ...scrollStyle
             }
         }
     },
@@ -75,11 +98,31 @@ export const theme = extendTheme({
 
                 _hover: {
                     transform: 'translate(-2px, -2px)',
-                    boxShadow: '1px 1px #0D0D0D, 2px 2px #0D0D0D' 
+                    boxShadow: '1px 1px #0D0D0D, 2px 2px #0D0D0D',
                 },
                 _active: {
-                    transform: 'translate(1px, 1px)',
+                    transform: 'translate(0px, 0px)',
                     boxShadow: '0px 0px #0D0D0D' 
+                },
+
+                _loading: {
+                    bg: 'gray3',
+                    opacity: 1,
+                    _hover: {
+                        transform: 'translate(0px, 0px)',
+                        boxShadow: '0px 0px #0D0D0D',
+                        bg: 'gray3',
+                    },
+                    _active: {
+                        transform: 'translate(0px, 0px)',
+                        boxShadow: '0px 0px #0D0D0D'
+                    },
+                },
+
+                _disabled: {
+                    bg: 'gray1',
+                    opacity: 1,
+                    pointerEvents: 'none'
                 },
             },
 
@@ -177,7 +220,8 @@ export const theme = extendTheme({
             baseStyle: {
                 borderBottomWidth: '1px',
                 borderColor: 'black',
-
+                width: 'fit-content',
+                
                 _hover: {
                     textDecoration: 'none'
                 }
@@ -185,13 +229,11 @@ export const theme = extendTheme({
             
             sizes: {
                 sm: {
-                    w: 'fit-content',
                     fontSize: '12px',
                     borderBottom: 'none',
                 },
                 
                 md: {
-                    w: 'fit-content',
                     fontSize: '12px',
                 }
             }

@@ -6,7 +6,7 @@ interface Props extends FlexProps {
 
 export default function Right({ children } : Props) {
     return (
-        <Flex w='100%' h='100%'>
+        <Flex w='100%' h='100%' overflowY='scroll'>
             <Container w='100%' h='100%'>
                 <Flex w='100%' h='100%' justify='center' align='center' py='50px'>
                     { children }

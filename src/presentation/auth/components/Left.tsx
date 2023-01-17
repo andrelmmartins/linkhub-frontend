@@ -14,6 +14,7 @@ export default function Left({ children, ...rest }: Props) {
             
             w={['100%', '100%', '40%']}
             maxW={['100%', '100%', '500px']}
+            h={['fit-content', 'fit-content', '100%']}
             flexDir={['column', 'column', 'row']}
             align={['center', 'center', 'flex-end']}
             

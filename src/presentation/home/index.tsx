@@ -1,18 +1,16 @@
+import Link from "next/link";
 import { Container, Flex, Heading, Text } from "@chakra-ui/react";
 
 import Copyright from "../../components/Copyright";
 import Header from "../../components/Header";
 import Window from "../../components/Window";
 import Button from "../../components/Button";
-import { useRouter } from "next/router";
 
 export default function Page() {
 
-    const router = useRouter()
-
     const buttons = <>
-        <Button onClick={() => router.push('/auth/create')} maxW='300px' width={['100%', '100%', 'fit-content']} variant='outline'>Criar conta</Button>
-        <Button onClick={() => router.push('/auth/signIn')} maxW='300px' width={['100%', '100%', 'fit-content']}>Entrar</Button>
+        <Link href='/auth/create'><Button maxW='300px' width={['100%', '100%', 'fit-content']} variant='outline'>Criar conta</Button></Link>
+        <Link href='/auth/signIn'><Button maxW='300px' width={['100%', '100%', 'fit-content']}>Entrar</Button></Link>
     </>
 
     return (

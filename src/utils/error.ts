@@ -21,6 +21,10 @@ function translateStringErrors(error: string) {
     switch(error) {
         // AUTH
         case 'incorrect email or password': return 'Email ou senha incorretos!'
+        
+        // SIGNIN ALERTS
+        case 'invalid_change': return 'Pedido de recuperação inválido ou expirou!'
+        
         default: {
             console.log(error)
             return 'Houve algum erro inesperado!'
