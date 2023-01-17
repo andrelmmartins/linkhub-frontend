@@ -44,7 +44,7 @@ export default function Input({ label, type, register, errors, ...rest } : Props
                 { showTogglePassword && (
                     <InputRightElement>
                         <Button variant='ghost' h='30px' w='30px' onClick={() => setHide(!hide)}>
-                            <Image src={hide ? '/closed-eye.svg' : '/open-eye.svg'} />
+                            <Image src={hide ? '/closed-eye.svg' : '/open-eye.svg'} alt='Mostrar e esconder senha' />
                         </Button>
                     </InputRightElement>
                 )}

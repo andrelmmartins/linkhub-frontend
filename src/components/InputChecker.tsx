@@ -68,9 +68,9 @@ export default function InputChecker({ label, register, errors, setError, watch,
                     <InputRightElement>
                         <Flex>
                             { result === true ?
-                                <Image src='/check.svg' h='12px' w='12px'/>
+                                <Image src='/check.svg' h='12px' w='12px' alt='Válido'/>
                             : result === false ?
-                                <Image src='/close.svg' h='10px' w='10px'/>
+                                <Image src='/close.svg' h='10px' w='10px' alt='Inválido'/>
                             :
                                 <Spinner color='gray1' h='12px' w='12px'/>
                             }
